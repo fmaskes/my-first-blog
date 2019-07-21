@@ -1,34 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Meu Primeiro site Django</title>
-</head>
-<body>
+{% extends 'blog/base.html' %}
 
-	<h1>Ter ideias e não vendê-las é ser escravos delas</h1>
-	<div>
-		{{ posts }}
-	</div>
-	{% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
-	{% endfor %}
-
-
-	<hr>
-
-
-	<h2>Tenha ideias</h2>
-	<div>
-		<p>Existe três tipos de pessoas, as que tem ideias, as que as usas e as que as vende,
-		as pessoas podem ser as três mas as grande maioria apenas usam-a (ideias), uma pequena parte têm e as vendem e uma minoria apenas tem. Também são chamdos de plantios de ideias.</p>
-		<h3>Tenha ideias: e não se prenda a elas.</h3>
-		<p>O que acontece com todo mundo, que pensa, todo mundo TEM IDEIA.</p>
-		<p>Naquele dia, você acorda e de repente percebe que alguma coisa poderia ser feito de uma maneira diferente, uma trava no portão, um cordão para puxar uma porteira, um motor para facilitar usa vida, ou mesmo um braço mecanico que facilita abrir o portão, todas esses pensamentos são ideias, mas essas ideias, aparecem e somem, ou mais ou menos isso, mas voce não deveria se preocupar com isso, pois imagine se voce pensassem e um milhão de ideias e tentasse produzir todas elas, 99% de nossas ideias só servem para a gente, e 99% é estupida. 1% são boas, e menos de 1% vão te deixar rico. </p>
-	</div>
-
-</body>
-</html>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
