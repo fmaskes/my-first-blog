@@ -6,6 +6,21 @@
 <body>
 
 	<h1>Ter ideias e não vendê-las é ser escravos delas</h1>
+	<div>
+		{{ posts }}
+	</div>
+	{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+	{% endfor %}
+
+
+	<hr>
+
+
 	<h2>Tenha ideias</h2>
 	<div>
 		<p>Existe três tipos de pessoas, as que tem ideias, as que as usas e as que as vende,
